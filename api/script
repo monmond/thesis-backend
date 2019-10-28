@@ -1,0 +1,19 @@
+#!/bin/bash
+
+unhandled_exception() {
+    echo "Some thing went wrong!!"
+}
+
+cwd="${PWD}"
+host="localhost:8080"
+if [[ -z "$cwd" ]]; then
+  unhandled_exception
+  exit 1
+fi
+osascript -e '
+on run argv
+  tell application "Terminal" 
+    set dir to POSIX path of item 1 of argv
+    do script "cd " & quoted form of dir & "; php -S " & item 2 of argv & " -t public public/index.php"
+  end tell
+end run' $cwd $host
