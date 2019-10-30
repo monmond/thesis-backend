@@ -138,4 +138,12 @@ return function (App $app) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });
+
+    $app->get('/tests', function (Request $request, Response $response) {
+      logDebug("start 1");
+      logDebug("end");
+      return $response;
+    });
 };
+
+
