@@ -13,13 +13,7 @@ return function (ContainerBuilder $containerBuilder) {
                 'name' => 'slim-app',
                 'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
                 'level' => Logger::DEBUG,
-            ],
-            "db" => [
-              "host" => "localhost",
-              "dbname" => "slim3",
-              "user" => "root",
-              "pass" => "xxxxx"
-            ],  
+            ]
         ],
     ]);
 };
