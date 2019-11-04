@@ -10,6 +10,7 @@ use App\Application\Actions\Monmond\InsertMonmondAction;
 use App\Application\Actions\Monmond\UpdateMonmondAction;
 use App\Application\Actions\Monmond\DeleteMonmondAction;
 use App\Application\Actions\Monmond\TransactionMonmondAction;
+use App\Application\Actions\Monmond\UploadMonmondAction;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -35,6 +36,7 @@ return function (App $app) {
     $group->post('/update', UpdateMonmondAction::class);
     $group->post('/delete', DeleteMonmondAction::class);
     $group->post('/transaction', TransactionMonmondAction::class);
+    $group->post('/upload', UploadMonmondAction::class);
   });
 
 };

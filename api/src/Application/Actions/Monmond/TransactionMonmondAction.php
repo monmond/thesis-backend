@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Actions\Monmond;
 
+use PDO;
 use App\Application\Utility\DBConnection;
 use App\Application\Actions\Action;
 use Slim\Exception\HttpBadRequestException;
@@ -38,26 +39,28 @@ class TransactionMonmondAction extends Action
         ];
         $sth = $dbh->prepare($sql);
         $sth->execute($parameters);
+        if (!$sth) {
+          throw $sth->errorInfo();
+        }
         if ($sth->rowCount() == 0) {
           throw new DomainTransactionException();
         }
         $updateResult = $sth->rowCount() > 0;
 
         $sql = "INSERT INTO monmond (name,age) 
-              VALUES (SELECT CONCAT('monmond',(SELECT MAX(id)+1 FROM monmond)),:age)";
+              SELECT CONCAT('monmond',MAX(id)+1),:age FROM monmond";
         $parameters = [
-          ':age' => 12
+          ':age' => '$parsedBody->age + 1'
         ];
         $sth = $dbh->prepare($sql);
         $sth->execute($parameters);
-        if ($sth->rowCount() == 0) {
-          // throw new DomainTransactionException();
+        if (!$sth) {
           throw $sth->errorInfo();
         }
+        if ($sth->rowCount() == 0) {
+          throw new DomainTransactionException();
+        }
         $insertResult = $sth->rowCount() > 0;
-
-        $insertResult = true;
-
         $dbh->commit();
         $sth = null;
         $dbh = null;
