@@ -19,6 +19,10 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
   $app->get('/', function (Request $request, Response $response) {
+    return $response;
+  });
+
+  $app->get('/info', function (Request $request, Response $response) {
     echo phpinfo();
     return $response;
   });

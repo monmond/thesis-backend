@@ -15,6 +15,8 @@ https://github.com/slimphp/Slim-Skeleton/issues/131
 ##PDO basic
 https://code.tutsplus.com/tutorials/php-database-access-are-you-doing-it-correctly--net-25338
 
-
 ##PDO Transaction
 https://thisinterestsme.com/php-pdo-transaction-example/
+
+##Running slim framework on existing apache web server
+https://stackoverflow.com/questions/48932959/running-slim-framework-on-existing-apache-web-server
