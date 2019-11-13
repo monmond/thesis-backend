@@ -39,6 +39,7 @@ $(function () {
       navItem = $("#navItemTables");
       break;
     case "monmond-tables.php":
+    case "forms.php":
       navItem = $("#navItemMonmondTables");
       break;
     default:
@@ -78,6 +79,7 @@ $(function () {
     case "charts.php": 
     case "tables.php": 
     case "monmond-tables.php": 
+    case "forms.php":
       break;
     default:
       break;

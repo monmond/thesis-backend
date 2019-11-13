@@ -26,11 +26,11 @@ class DBConnection extends PDO
   // protected $db_pass = "ZFHVgrkfok@$%212d679mBOHPTSfZDFG";
   // protected $db_host = "122.155.206.212";
   // protected $db_port = 8080;
-
+  
   public function __construct()
   {
     try {
-      parent::__construct("mysql:host={$this->db_host};dbname={$this->db_name};charset=utf8mb4", $this->db_user, $this->db_pass, array(PDO::ATTR_EMULATE_PREPARES, false, PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION));
+      parent::__construct("mysql:host={$this->db_host};dbname={$this->db_name};charset=utf8mb4", $this->db_user, $this->db_pass, array(PDO::ATTR_EMULATE_PREPARES=>false, PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION));
     } catch (PDOException $e) {
       throw $e;
     }

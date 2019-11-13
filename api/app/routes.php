@@ -42,4 +42,8 @@ return function (App $app) {
     $group->post('/upload', UploadMonmondAction::class);
   });
 
+  $app->get('/twig', function (Request $request, Response $response) {
+    return $response;
+  });
+
 };

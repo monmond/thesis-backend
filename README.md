@@ -20,3 +20,10 @@ https://thisinterestsme.com/php-pdo-transaction-example/
 
 ##Running slim framework on existing apache web server
 https://stackoverflow.com/questions/48932959/running-slim-framework-on-existing-apache-web-server
+
+##Slim with SB Admin 2
+https://github.com/akrabat/slim3-skeleton
+https://github.com/kkshyu/slim3-sbadmin-skeleton
+
+##Slim with view
+https://github.com/slimphp/PHP-View
